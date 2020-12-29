@@ -18,5 +18,23 @@
   </tbody>
 </table>
 
+<table>
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @member.friendships.each do |friendship| %>
+      <tr>
+        <td><%= link_to friendship.friend.name, member_path(friendship.friend) %></td>
+        <td><%= link_to 'Destroy', friendship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Friend', new_friendship_path(member_id: @member.id) %>
+
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>

@@ -14,7 +14,7 @@
       <tr>
         <td><%= member.name %></td>
         <td><%= link_to member.shortened_url, member.shortened_url, target: '_blank' %></td>
-        <td><%#= member.friendships.size %></td>
+        <td><%= member.friendships.size %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
