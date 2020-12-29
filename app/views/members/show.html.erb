@@ -1,12 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @member.name %></h1>
+<h3><%= @member.website_url %> (<%= link_to @member.shortened_url, @member.shortened_url, target: '_blank' %>)</h3>
+
+<h2>Topic search:</h2>
 <%= simple_form_for :search, url: member_path, method: :get do |f| %>
   <%= f.input :keywords %>
   <%= f.button :button, type: :submit do %>Search<% end %>
 <% end %>
 
 <% if @results %>
-  <h2>Results for: <%= params[:keywords] %></h2>
+  <h2>Results for search: "<%= params[:search][:keywords] %>"</h2>
   <table>
     <thead>
       <tr>
@@ -23,9 +27,7 @@
   </table>
 <% end %>
 
-<h1><%= @member.name %></h1>
-<h3><%= @member.website_url %> (<%= link_to @member.shortened_url, @member.shortened_url, target: '_blank' %>)</h3>
-
+<h2>Headings:</h2>
 <table>
   <thead>
     <tr>
@@ -41,6 +43,7 @@
   </tbody>
 </table>
 
+<h2>Friends pages:</h2>
 <table>
   <thead>
     <tr>
@@ -58,6 +61,8 @@
 </table>
 
 <%= link_to 'New Friend', new_friendship_path(member_id: @member.id) %>
+
+<hr>
 
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
