@@ -3,6 +3,10 @@ class FriendshipsController < ApplicationController
 
   def new
     @friendship = Friendship.new
+
+    # Limit eligible friendships to those that don't exist
+    member = Member.find(params[:member_id])
+    @eligible_friends = Member.where.not(id: member.id).where.not(id: member.friends.pluck(:id))
   end
 
   def create

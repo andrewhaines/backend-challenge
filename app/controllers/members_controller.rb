@@ -6,6 +6,9 @@ class MembersController < ApplicationController
   end
 
   def show
+    if params[:search][:keywords]
+      @results = Heading.where.not(member_id: [@member.id] + @member.friends.pluck(:id)).where("content LIKE ?", "%#{params[:search][:keywords]}%")
+    end
   end
 
   def new

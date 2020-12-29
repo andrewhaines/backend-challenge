@@ -1,5 +1,28 @@
 <p id="notice"><%= notice %></p>
 
+<%= simple_form_for :search, url: member_path, method: :get do |f| %>
+  <%= f.input :keywords %>
+  <%= f.button :button, type: :submit do %>Search<% end %>
+<% end %>
+
+<% if @results %>
+  <h2>Results for: <%= params[:keywords] %></h2>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each do |result| %>
+        <tr>
+          <td><%= @member.name %> -> COMMON_FRIEND -> <%= result.member.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
 <h1><%= @member.name %></h1>
 <h3><%= @member.website_url %> (<%= @member.shortened_url %>)</h3>
 

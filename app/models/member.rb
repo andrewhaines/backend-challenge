@@ -1,6 +1,7 @@
 class Member < ApplicationRecord
   has_many :headings
   has_many :friendships
+  has_many :friends, through: :friendships
 
   validates :name, :website_url, presence: true
 
