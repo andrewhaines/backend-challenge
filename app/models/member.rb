@@ -1,6 +1,6 @@
 class Member < ApplicationRecord
-  has_many :headings
-  has_many :friendships
+  has_many :headings, dependent: :destroy
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 
   validates :name, :website_url, presence: true
