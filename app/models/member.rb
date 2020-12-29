@@ -5,7 +5,7 @@ class Member < ApplicationRecord
 
   validates :name, :website_url, presence: true
 
-  before_commit :shorten_url
+  before_commit :shorten_url, on: :create
   after_commit :create_headings, on: :create
 
   def shorten_url
