@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form'
 gem 'bitly'
+gem 'open-uri'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
