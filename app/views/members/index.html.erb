@@ -13,7 +13,6 @@
     <% @members.each do |member| %>
       <tr>
         <td><%= member.name %></td>
-        <td><%= member.website_url %></td>
         <td><%= link_to member.shortened_url, member.shortened_url, target: '_blank' %></td>
         <td><%#= member.friendships.size %></td>
         <td><%= link_to 'Show', member %></td>

@@ -1,4 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @member.name %></h1>
+<h3><%= @member.website_url %> (<%= @member.shortened_url %>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @member.headings.each do |heading| %>
+      <tr>
+        <td><%= heading.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>

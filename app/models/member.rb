@@ -1,6 +1,8 @@
 class Member < ApplicationRecord
   has_many :headings
 
+  validates :name, :website_url, presence: true
+
   before_commit :shorten_url
   after_commit :create_headings, on: :create
 
